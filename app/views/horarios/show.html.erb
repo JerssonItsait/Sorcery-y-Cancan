@@ -1,0 +1,31 @@
+<%- model_class = Horario -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:dia) %>:</strong></dt>
+  <dd><%= @horario.dia %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:hora) %>:</strong></dt>
+  <dd><%= @horario.hora %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:aula) %>:</strong></dt>
+  <dd><%= @horario.aula %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:materia_id) %>:</strong></dt>
+  <dd><%= @horario.materia_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:instructor_id) %>:</strong></dt>
+  <dd><%= @horario.instructor_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:curso_id) %>:</strong></dt>
+  <dd><%= @horario.curso_id %></dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              horarios_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_horario_path(@horario), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              horario_path(@horario),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
