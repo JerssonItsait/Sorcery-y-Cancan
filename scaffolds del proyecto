@@ -1,0 +1,10 @@
+rails g scaffold materia nombre:string --skip-stylesheets
+
+rails g scaffold instructor nombres:string cedula:string email:string direccion:string telefono:string fch_nacimiento:date --skip-stylesheets
+
+rails g scaffold curso ficha:string nombre:string --skip-stylesheets
+
+rails g scaffold estudiante nombre:string cedula:string email:string direccion:string fch_nacimiento:date curso:references --skip-stylesheets
+
+rails g scaffold horario dia:string hora:time aula:string materia:references instructor:references curso:references --skip-stylesheets
+

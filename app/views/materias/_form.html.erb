@@ -1,8 +1,13 @@
-<%= simple_form_for @materia, :html => { :class => 'form-horizontal' } do |f| %>
-  <%= f.input :nombre %>
+<%= simple_form_for(@materia, :html => { :class => 'form-horizontal' }, :remote => true) do |f| %>
+
+  <%= f.error_notification %>
+  
+
+  <%= f.input :nombre, :label => "Nombre",  :required => true %>
+  
   <div class="form-actions">
-    <%= f.button :submit, :class => 'btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                materias_path, :class => 'btn' %>
+    <%= f.submit "guardar", :class => 'btn btn-primary' %>
+    <%= link_to 'Atras', materias_path, :class => 'btn btn-small' %>
   </div>
 <% end %>
+

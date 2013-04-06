@@ -1,0 +1,12 @@
+<tr id=<%= "estudiante_#{estudiante.id}" %>>
+  <td><%= link_to estudiante.id, edit_estudiante_path(estudiante), :remote => true %></td>
+  <td><%= estudiante.nombre %></td>
+  <td>
+    <%= link_to 'Mostrar', estudiante, :remote => true, :class => 'btn btn-mini' %>
+    <%= link_to 'Editar', edit_estudiante_path(estudiante), :remote => true,
+        :class => 'btn btn-mini' %>
+    <%= link_to 'Eliminar', estudiante, 
+        :data => { :confirm => 'Esta Seguro?' },
+        :method => :delete, :remote => true, :class => 'btn btn-mini btn-danger' %>
+  </td>
+</tr>

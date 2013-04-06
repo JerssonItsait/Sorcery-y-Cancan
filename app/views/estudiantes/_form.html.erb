@@ -1,13 +1,18 @@
-<%= simple_form_for @estudiante, :html => { :class => 'form-horizontal' } do |f| %>
-  <%= f.input :nombre %>
-  <%= f.input :cedula %>
-  <%= f.input :email %>
-  <%= f.input :direccion %>
-  <%= f.input :fch_nacimiento %>
-  <%= f.input :curso_id %>
+<%= simple_form_for(@estudiante, :html => { :class => 'form-horizontal' }, :remote => true) do |f| %>
+
+  <%= f.error_notification %>
+  
+  <%= f.input :nombre, :label => "Nombre",  :required => true %>
+  <%= f.input :cedula, :label => "Cedula",  :required => true %>
+  <%= f.input :email, :label => "Email",  placeholder: 'user@domain.com', :required => true %>
+  <%= f.input :direccion, :label => "direccion",  :required => true %>
+  <%= f.input :fch_nacimiento, as: :date, start_year: Date.today.year - 50, end_year: Date.today.year - 10, accept_day: true, order: [:day, :month, :year] %>
+  
+  <%= f.label :curso %>   
+  <%= f.collection_select :curso_id, Curso.all, :id, :nombre %>
+   
   <div class="form-actions">
-    <%= f.button :submit, :class => 'btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                estudiantes_path, :class => 'btn' %>
+    <%= f.submit "guardar", :class => 'btn btn-primary' %>
+    <%= link_to 'Atras', estudiantes_path, :class => 'btn btn-small' %>
   </div>
 <% end %>
