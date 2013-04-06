@@ -1,11 +1,11 @@
 class InstructoresController < ApplicationController
 
   def index
-    @instructores = Instructor.all
+    @instructores = Instructor.search(params[:search]).page(params[:page]).per_page(5)
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @instructores }
+      format.xml { render :xml => @instructores }
     end
   end
 

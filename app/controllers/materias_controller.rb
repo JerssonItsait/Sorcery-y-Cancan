@@ -1,11 +1,11 @@
 class MateriasController < ApplicationController
 
   def index
-    @materias = Materia.all
+    @materias = Materia.search(params[:search]).page(params[:page]).per_page(5)
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @materias }
+      format.xml { render :xml => @materias }
     end
   end
 

@@ -1,11 +1,11 @@
 class CursosController < ApplicationController
 
   def index
-    @cursos = Curso.all
+    @cursos = Curso.search(params[:search]).page(params[:page]).per_page(5)
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @cursos }
+      format.xml { render :xml => @cursos }
     end
     
   end

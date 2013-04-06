@@ -1,11 +1,11 @@
 class EstudiantesController < ApplicationController
 
   def index
-    @estudiantes = Estudiante.all
+    @estudiantes = Estudiante.search(params[:search]).page(params[:page]).per_page(5)
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @estudiantes }
+      format.xml { render :xml => @estudiantes }
     end
   end
 

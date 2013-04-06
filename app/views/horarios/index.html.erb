@@ -1,6 +1,13 @@
 <%- model_class = Horario -%>
 <div class="page-header">
-  <h1>Horarios</h1>
+  <h1><center>Horarios</center></h1>
+  <%= form_tag request.path, :method => 'get' do %>
+  <%= content_tag :label do %>
+  <span class="label label-inverse">Buscar Horario:</span>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag "Consultar", :class => 'btn btn-inverse', :name => nil %>
+  <% end %>
+  <% end %>
 </div>
 <table class="table table-striped table-bordered table-condensed">
   <thead>
@@ -25,3 +32,12 @@
     </tr>
   </tfoot>
 </table>
+<br />
+<br />
+<div align="center">
+<%= will_paginate @horarios, :previous_label => '&laquo; Anterior', :next_label => 'Siguiente
+&raquo;' %>
+</div>
+<p>
+<em>Total Horarios Programados : </em><%= @horarios.total_entries %>
+</p>

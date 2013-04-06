@@ -1,11 +1,11 @@
 class HorariosController < ApplicationController
 
   def index
-    @horarios = Horario.all
+    @horarios = Horario.search(params[:search]).page(params[:page]).per_page(5)
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @horarios }
+      format.xml { render :xml => @horarios }
     end
   end
 
