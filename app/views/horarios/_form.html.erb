@@ -7,17 +7,19 @@
   <%= f.input :hora, :label => "Hora", :required => true %>
   <%= f.input :aula, collection: ["aula-201", "aula-202", "aula-203"], :label => "Aula",  :required => true %>
 
-  <%= f.label :materia %>    
-  <%= f.collection_select :materia_id, Materia.all, :id, :nombre %>
-
-  <%= f.label :instructor %>   
-  <%= f.collection_select :instructor_id, Instructor.all, :id, :nombres %>
-
-  <%= f.label :curso %>    
-  <%= f.collection_select :curso_id, Curso.all, :id, :nombre %>
-
+  <!-- lixbox dependientes -->
+  <%= f.label :materia_id %>    
+  <%= f.collection_select :materia_id, Materia.all, :id, :nombre, prompt: "Seleccione una Materia"  %>
+  <br><br>
+  <%= f.label :instructor_id %>   
+  <%= f.collection_select :instructor_id, Instructor.all, :id, :nombres, prompt: "Seleccione una Instructor"  %>
+  <br><br>
+  <%= f.label :curso_id %>    
+  <%= f.collection_select :curso_id, Curso.all, :id, :nombre, prompt: "Seleccione una Curso"  %>
+  <br><br>
   <div class="form-actions">
     <%= f.submit "guardar", :class => 'btn btn-primary' %>
+   
     <%= link_to 'Atras', horarios_path, :class => 'btn btn-small' %>
   </div>
 <% end %>

@@ -4,10 +4,10 @@
   
   <%= f.input :nombres, :label => "Nombre",  :required => true %>
   <%= f.input :cedula, :label => "Cedula",  :required => true %>
-  <%= f.input :email, :label => "Email",  :required => true %>
-  <%= f.input :direccion, :label => "Direccion",  :required => true %>
+  <%= f.input :email, :label => "Email",  placeholder: 'user@domain.com',:required => true %>
+  <%= f.input :direccion, :label => "Direccion", :required => true %>
   <%= f.input :telefono, :label => "Telefono",  :required => true %>
-  <%= f.input :fch_nacimiento, as: :date, start_year: Date.today.year - 50, end_year: Date.today.year - 10, discard_day: true, order: [ :day, :month, :year] %>
+  <%= f.input :fch_nacimiento, as: :date, start_year: Date.today.year - 50, end_year: Date.today.year - 10, accept_day: true, order: [ :day, :month, :year] %>
     
   <div class="form-actions">
     <%= f.submit "guardar", :class => 'btn btn-primary' %>

@@ -11,6 +11,9 @@ class Instructor < ActiveRecord::Base
   :length => { :minimum => 6, :maximum => 15 },
   :numericality => true
 
+
+  has_many :horarios
+  
   attr_accessible :cedula, :direccion, :email, :fch_nacimiento, :nombres, :telefono
 
     def self.search(search)

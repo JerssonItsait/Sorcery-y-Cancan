@@ -1,5 +1,5 @@
 class CursosController < ApplicationController
-
+before_filter :find_curso, :except => [ :index, :create, :new ]
   def index
     @cursos = Curso.search(params[:search]).page(params[:page]).per_page(5)
 
@@ -12,7 +12,7 @@ class CursosController < ApplicationController
 
 
   def show
-    @curso = Curso.find(params[:id])
+   # @curso = Curso.find(params[:id])
    
   end
 
@@ -24,7 +24,7 @@ class CursosController < ApplicationController
 
 
   def edit
-    @curso = Curso.find(params[:id])
+    #@curso = Curso.find(params[:id])
   end
 
 
@@ -37,15 +37,19 @@ class CursosController < ApplicationController
 
 
   def update
-    @curso = Curso.find(params[:id])
+    #@curso = Curso.find(params[:id])
     
     render :action => :edit unless @curso.update_attributes(params[:curso])
   end
 
 
   def destroy
-    @curso = Curso.find(params[:id])
+    #@curso = Curso.find(params[:id])
     @curso.destroy
+  end
+
+  def find_curso
+      @curso = Curso.find(params[:id]) if params[:id]
   end
 
 end

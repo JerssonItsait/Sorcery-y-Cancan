@@ -3,6 +3,9 @@
   <td><%= horario.dia %></td>
   <td><%= horario.hora %></td>
   <td><%= horario.aula %></td>
+  <td><%= horario.materia_id %></td>
+  <td><%= horario.instructor_id %></td>
+  <td><%= horario.curso_id %></td>
   <td>
     <%= link_to 'Mostrar', horario, :remote => true, :class => 'btn btn-mini' %>
     <%= link_to 'Editar', edit_horario_path(horario), :remote => true,

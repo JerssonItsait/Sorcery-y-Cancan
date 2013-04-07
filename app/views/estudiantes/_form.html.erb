@@ -1,4 +1,4 @@
-<%= simple_form_for(@estudiante, :html => { :class => 'form-horizontal' }, :remote => true) do |f| %>
+<%= simple_form_for([@curso,@estudiante], :html => { :class => 'form-horizontal' }, :remote => true) do |f| %>
 
   <%= f.error_notification %>
   
@@ -13,6 +13,6 @@
    
   <div class="form-actions">
     <%= f.submit "guardar", :class => 'btn btn-primary' %>
-    <%= link_to 'Atras', estudiantes_path, :class => 'btn btn-small' %>
+    <%= link_to 'Atras', curso_estudiantes_path, :class => 'btn btn-small' %>
   </div>
 <% end %>

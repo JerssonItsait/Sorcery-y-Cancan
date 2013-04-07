@@ -1,5 +1,5 @@
 class MateriasController < ApplicationController
-
+before_filter :find_materia, :except => [ :index, :create, :new ]
   def index
     @materias = Materia.search(params[:search]).page(params[:page]).per_page(5)
 
@@ -11,7 +11,7 @@ class MateriasController < ApplicationController
 
 
   def show
-    @materia = Materia.find(params[:id])
+    #@materia = Materia.find(params[:id])
 
   end
 
@@ -23,7 +23,7 @@ class MateriasController < ApplicationController
 
  
   def edit
-    @materia = Materia.find(params[:id])
+    #@materia = Materia.find(params[:id])
   end
 
 
@@ -36,15 +36,19 @@ class MateriasController < ApplicationController
 
 
   def update
-    @materia = Materia.find(params[:id])
-    render :action => :edit unless @materia.update_attributes(params[:matera])
+   # @materia = Materia.find(params[:id])
+    render :action => :edit unless @materia.update_attributes(params[:materia])
 
   end
 
 
   def destroy
-    @materia = Materia.find(params[:id])
+    #@materia = Materia.find(params[:id])
     @materia.destroy
-
   end
+  
+   def find_materia
+      @materia = Materia.find(params[:id]) if params[:id]
+  end
+
 end

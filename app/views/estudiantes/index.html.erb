@@ -1,9 +1,9 @@
 <%- model_class = Estudiante -%>
 <div class="page-header">
-  <h1><center>Estudiantes</center></h1>
+  <h1><center><p class="text-success">ESTUDIANTES</p></center></h1>
 <%= form_tag request.path, :method => 'get' do %>
 <%= content_tag :label do %>
-<span class="label label-inverse">Nombre Aprendiz:</span>
+<%= image_tag('search2.png', :alt => '', :class => "img-circle" ) %>
 <%= text_field_tag :search, params[:search] %>
 <%= submit_tag "Consultar", :class => 'btn btn-inverse', :name => nil %>
 <% end %>
@@ -28,8 +28,9 @@
   </tbody>
   <tfoot>
     <tr>
-      <td><%= link_to 'Nuevo Estudiante', new_estudiante_path, :class => 'btn btn-success', :remote => true %></td>
+      <td><%= link_to 'Nuevo Estudiante', new_curso_estudiante_path(@curso), :class => 'btn btn-success', :remote => true %></td>
     </tr>
+    <td><%= link_to 'Atras', cursos_path, :class => 'btn btn-small' %></td>
   </tfoot>
 </table>
 <br />

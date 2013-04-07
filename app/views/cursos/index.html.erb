@@ -1,14 +1,15 @@
 <%- model_class = Curso -%>
 <div class="page-header">
-  <h1><center>Cursos</center></h1>
+  <h1><center><p class="text-success">CURSOS</p></center></h1>
   <%= form_tag request.path, :method => 'get' do %>
   <%= content_tag :label do %>
-  <span class="label label-inverse">Nombre de Curso:</span>
+  <%= image_tag('search2.png', :alt => '', :class => "img-circle" ) %>
   <%= text_field_tag :search, params[:search] %>
   <%= submit_tag "Consultar", :class => 'btn btn-inverse', :name => nil %>
   <% end %>
   <% end %>
 </div>
+
 <table class="table table-hover table-bordered table-condensed">
   <thead>
     <tr>
@@ -16,6 +17,8 @@
        <th>Ficha</th>
       <th>Nombre</th>
       <th>Acciones</th>
+      <th>Hacia:</th>
+      
 
       <th></th>
     </tr>

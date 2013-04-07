@@ -1,17 +1,20 @@
 Proyecto::Application.routes.draw do
+  
   resources :horarios
 
+  #resources :estudiantes
 
-  resources :estudiantes
-
-
-  resources :cursos
-
-
-  resources :instructores
+# creo una conexion entre padre e hijas en la ruta y elimino la ruta directa
+  resources :cursos do
+      resources :estudiantes
+  end
 
 
-  resources :materias
+  resources :instructores 
+
+  resources :materias 
+    
+  
 
 
   # The priority is based upon order of creation:
