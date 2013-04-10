@@ -3,7 +3,9 @@
   <%= f.error_notification %>
   
   <%= f.input :nombre, :label => "Nombre",  :required => true %>
+  <%= f.input :apellidos, :label => "Apellidos",  :required => true %>
   <%= f.input :cedula, :label => "Cedula",  :required => true %>
+  <%= f.input :telefono, :label => "Telefono",  :required => true %>
   <%= f.input :email, :label => "Email",  placeholder: 'user@domain.com', :required => true %>
   <%= f.input :direccion, :label => "direccion",  :required => true %>
   <%= f.input :fch_nacimiento, as: :date, start_year: Date.today.year - 50, end_year: Date.today.year - 10, accept_day: true, order: [:day, :month, :year] %>

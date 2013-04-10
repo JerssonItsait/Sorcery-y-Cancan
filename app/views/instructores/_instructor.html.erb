@@ -1,11 +1,13 @@
 <tr id=<%= "instructor_#{instructor.id}" %>>
   <td><%= link_to instructor.id, edit_instructor_path(instructor), :remote => true %></td>
   <td><%= instructor.nombres %></td>
+  <td><%= instructor.apellidos %></td>
   <td><%= instructor.cedula %></td>
   <td><%= instructor.email %></td>
   <td><%= instructor.direccion %></td>
   <td><%= instructor.telefono %></td>
   <td><%= instructor.fch_nacimiento %></td>
+ <td><%= instructor.materia_id %></td> 
 
   <td>
     <%= link_to 'Mostrar', instructor, :remote => true, :class => 'btn btn-mini' %>

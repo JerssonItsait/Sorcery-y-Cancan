@@ -17,3 +17,4 @@ class Curso < ActiveRecord::Base
 	end
 
 end
+  

@@ -11,7 +11,7 @@ class Horario < ActiveRecord::Base
   attr_accessible :aula, :dia, :hora, :materia_id, :instructor_id, :curso_id
 
   	def self.search(search)
-	   where('dia like ?', "%#{search}%")
+	   where('aula like ?', "%#{search}%")
 	end
 
 end

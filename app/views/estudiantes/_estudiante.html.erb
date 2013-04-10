@@ -1,7 +1,9 @@
 <tr id=<%= "estudiante_#{estudiante.id}" %>>
   <td><%= link_to estudiante.id, edit_curso_estudiante_path( @curso, estudiante), :remote => true %></td>
   <td><%= estudiante.nombre %></td>
+  <td><%= estudiante.apellidos %></td>
   <td><%= estudiante.cedula %></td>
+  <td><%= estudiante.telefono %></td>
   <td><%= estudiante.email %></td>
   <td><%= estudiante.direccion %></td>
   <td><%= estudiante.fch_nacimiento %></td>

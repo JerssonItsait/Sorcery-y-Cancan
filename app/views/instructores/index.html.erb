@@ -1,25 +1,38 @@
+<br>
+<br>
 <%- model_class = Instructor -%>
 <div class="page-header">
   <h1><center><p class="text-success">INSTRUCTORES</p></center></h1>
   <%= form_tag request.path, :method => 'get' do %>
   <%= content_tag :label do %>
   <%= image_tag('search2.png', :alt => '', :class => "img-circle" ) %>
-  <%= text_field_tag :search, params[:search] %>
-  <%= submit_tag "Consultar", :class => 'btn btn-inverse', :name => nil %>
+    <%= hidden_field_tag :direction, params[:direction] %>
+  <%= hidden_field_tag :sort, params[:sort] %>
+  <%= text_field_tag :search, params[:search], :placeholder => "nombre, cédula, teléfono o email" %>
+  <%= submit_tag "Consultar", :class => 'btn btn-inverse', :nombres => nil %>
+  <% end %>
+  <% end %>
+    <br>
+  <%= form_tag request.path, :method => 'get' do %>
+  <%= content_tag :label do %>
+  Registros por página:
+  <%= text_field_tag :numreg, params[:numreg], :class =>'input-mini' %>
   <% end %>
   <% end %>
 </div>
-<table class="table table-hover table-bordered table-condensed">
+<table class="table table-hover table-bordered table-condensed pretty ">
   <thead>
     <tr>
-      <th>id</th>
-      <th>nombres</th>
-      <th>cedula</th>
-      <th>email</th>
-      <th>direccion</th>
-      <th>telefono</th>
-      <th>fch_nacimiento</th>
-      <th>acciones</th>
+      <th><%= sortable "id" %></th>
+      <th><%= sortable "nombres" %></th>
+      <th><%= sortable "apellidos" %></th>
+      <th><%= sortable "cedula" %></th>
+      <th><%= sortable "email" %></th>
+      <th><%= sortable "direccion" %></th>
+      <th><%= sortable "telefono" %></th>
+      <th><%= sortable "fch. nacimiento" %></th>
+      <th><%= sortable "materia" %></th>
+      <th><%= sortable "acciones" %></th>
       <th></th>
     </tr>
   </thead>

@@ -2,9 +2,16 @@ class EstudiantesController < ApplicationController
 
   before_filter :find_curso_estudiantes
 
+  helper_method :sort_column, :sort_direction
   def index
-    #@estudiantes = Estudiante.search(params[:search]).page(params[:page]).per_page(5)
-    @estudiantes = @curso.estudiantes.search(params[:search]).page(params[:page]).per_page(5)
+    @rxp = (params[:numreg])? params[:numreg].to_i : 5
+
+     if ((@rxp) == 0) or ((@rxp) < 0) then
+        @rxp = 1
+     end
+     @estudiantes = Estudiante.search(params[:search]).order(sort_column + ' ' + sort_direction).paginate(:per_page => (@rxp), :page => params[:page])
+    #@estudiantes = Estudiante.search(params[:search]).page(params[:page]).per_page(5) #asi viene por defecto
+    #@estudiantes = @curso.estudiantes.search(params[:search]).page(params[:page]).per_page(@rxp)# así queda sin hacer ordenamiento de columnas
       respond_to do |format|
       format.html # index.html.erb
       format.xml { render :xml => @estudiantes }
@@ -60,6 +67,15 @@ class EstudiantesController < ApplicationController
   def  find_curso_estudiantes
     @curso = Curso.find( params[:curso_id]) # recupera el id del curso
     @estudiante = Estudiante.find(params[:id]) if params[:id] #recupera el id del estudiante del curso en el q se encuentra actualmente
+  end
+
+        private
+  def sort_column
+    Estudiante.column_names.include?(params[:sort]) ? params[:sort] : "nombre"
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
   end
 
 end
