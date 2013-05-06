@@ -3,15 +3,16 @@
   <td><%= horario.dia %></td>
   <td><%= horario.hora %></td>
   <td><%= horario.aula %></td>
-  <td><%= horario.materia_id %></td>
-  <td><%= horario.instructor_id %></td>
-  <td><%= horario.curso_id %></td>
+  <td><%= horario.materia.nombre %></td>
+  <td><%= horario.instructor.nombres %></td>
+  <td><%= horario.curso.nombre %></td>
   <td>
-    <%= link_to 'Mostrar', horario, :remote => true, :class => 'btn btn-mini' %>
+    
     <%= link_to 'Editar', edit_horario_path(horario), :remote => true,
         :class => 'btn btn-mini' %>
     <%= link_to 'Eliminar', horario, 
         :data => { :confirm => 'Esta Seguro?' },
         :method => :delete, :remote => true, :class => 'btn btn-mini btn-danger' %>
+    <%= link_to image_tag("pdf2.png"), horario_path(horario, :format => "pdf") %>
   </td>
 </tr>

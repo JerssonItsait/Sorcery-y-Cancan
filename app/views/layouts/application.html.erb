@@ -1,3 +1,4 @@
+    <br><br><br>
 <!doctype html>
 <html>
   <head>
@@ -8,6 +9,7 @@
     <meta name="author" content="">
     <%= stylesheet_link_tag "application", :media => "all" %>
     <%= javascript_include_tag "application" %>
+
     <%= csrf_meta_tags %>
     <%= yield(:head) %>
   </head>
@@ -19,13 +21,17 @@
         </div>
       </nav>
     </header>
+      <div class="span12">
+        <%= render 'layouts/logueo' %>
+      
+      </div>
     <div id="main" role="main">
       <div class="container">
         <div class="content">
            <div class="row">
             <div class="span12">
               <%= render 'layouts/messages' %>
-              <%= yield %>
+            
             </div>
           </div>
           <left><%=image_tag('cap1.png', :alt => '', :class => "img-rounded" ) %><left>

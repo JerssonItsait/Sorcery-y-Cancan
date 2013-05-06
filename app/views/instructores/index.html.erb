@@ -33,7 +33,6 @@
       <th><%= sortable "fch. nacimiento" %></th>
       <th><%= sortable "materia" %></th>
       <th><%= sortable "acciones" %></th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -41,10 +40,11 @@
   </tbody>
   <tfoot>
     <tr>
-      <td><%= link_to 'Nuevo Instructor', new_instructor_path, :class => 'btn btn-success', :remote => true %></td>
+      
     </tr>
   </tfoot>
 </table>
+<td><%= link_to 'Nuevo Instructor', new_instructor_path, :class => 'btn btn-success' %></td>
 <br />
 <br />
 <div align="center">

@@ -28,9 +28,7 @@
       <th><%= sortable "id" %></th>
       <th><%= sortable "nombre" %></th>
       <th>Acciones</th>
-      
-
-      <th></th>
+            
     </tr>
   </thead>
   <tbody>
@@ -38,10 +36,11 @@
   </tbody>
   <tfoot>
     <tr>
-      <td><%= link_to 'Nueva materia', new_materia_path, :class => 'btn btn-success', :remote => true %></td>
+    
     </tr>
   </tfoot>
 </table>
+  <td><%= link_to 'Nueva materia', new_materia_path, :class => 'btn btn-success', :remote => true %></td>
 <br />
 <br />
 <div align="center">

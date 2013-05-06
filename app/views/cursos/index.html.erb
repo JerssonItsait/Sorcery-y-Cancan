@@ -28,9 +28,7 @@
       <th><%= sortable "nombre" %></th>
       <th>Acciones</th>
       <th>Hacia:</th>
-      
-
-      <th></th>
+  
     </tr>
   </thead>
   <tbody>
@@ -38,16 +36,17 @@
   </tbody>
   <tfoot>
     <tr>
-      <td><%= link_to 'Nuevo Curso', new_curso_path, :class => 'btn btn-success', :remote => true %></td>
+      
     </tr>
   </tfoot>
 </table>
+<td><%= link_to 'Nuevo Curso', new_curso_path, :class => 'btn btn-success', :remote => true %></td>
 <br />
 <br />
 <div align="center">
 <%= will_paginate @cursos, :previous_label => '&laquo; Anterior', :next_label => 'Siguiente
 &raquo;' %>
 </div>
-<p>
+<p id="totcurs">
 <em>Total Cursos : </em><%= @cursos.total_entries %>
 </p>

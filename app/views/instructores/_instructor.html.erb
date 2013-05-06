@@ -1,5 +1,6 @@
 <tr id=<%= "instructor_#{instructor.id}" %>>
   <td><%= link_to instructor.id, edit_instructor_path(instructor), :remote => true %></td>
+  <td><%= image_tag instructor.avatar.url(:lsmall) %> <%= instructor.nombres %></td>
   <td><%= instructor.nombres %></td>
   <td><%= instructor.apellidos %></td>
   <td><%= instructor.cedula %></td>

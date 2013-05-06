@@ -1,5 +1,7 @@
 class CursosController < ApplicationController
 
+before_filter :require_login
+
 before_filter :find_curso, :except => [ :index, :create, :new ]
 
 helper_method :sort_column, :sort_direction
@@ -39,7 +41,7 @@ helper_method :sort_column, :sort_direction
 
   def create
     @curso = Curso.new(params[:curso])
-
+    @cursos = Curso.all
     render :action => :new unless @curso.save
   
   end
@@ -55,6 +57,7 @@ helper_method :sort_column, :sort_direction
   def destroy
     #@curso = Curso.find(params[:id])
     @curso.destroy
+    @cursos = Curso.all
   end
 
   def find_curso

@@ -32,7 +32,7 @@
       <th><%= sortable "f_nacimiento" %></th>
       <th><%= sortable "curso" %></th>
       <th>Acciones</th>
-      <th></th>
+      
     </tr>
   </thead>
   <tbody>
@@ -40,11 +40,12 @@
   </tbody>
   <tfoot>
     <tr>
-      <td><%= link_to 'Nuevo Estudiante', new_curso_estudiante_path(@curso), :class => 'btn btn-success', :remote => true %></td>
+      
     </tr>
     <td><%= link_to 'Atras', cursos_path, :class => 'btn btn-small' %></td>
   </tfoot>
 </table>
+<td><%= link_to 'Nuevo Estudiante', new_curso_estudiante_path(@curso), :class => 'btn btn-success', :remote => true %></td>
 <br />
 <br />
 <div align="center">

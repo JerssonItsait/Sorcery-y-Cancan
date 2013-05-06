@@ -1,5 +1,7 @@
 class HorariosController < ApplicationController
 
+  before_filter :require_login
+
   helper_method :sort_column, :sort_direction
   def index
   @rxp = (params[:numreg])? params[:numreg].to_i : 5
@@ -13,12 +15,24 @@ class HorariosController < ApplicationController
       format.html # index.html.erb
       format.xml { render :xml => @horarios }
     end
+    #Prawn::Document.generate("explicit.pdf") do |pdf|
+    #pdf.text "Hello World"
+#end
   end
 
 
   def show
   @horario = Horario.find(params[:id])
- 
+
+    respond_to do |format|
+    #  format.html # show.html.erb
+     # format.json { render json: @horario }    
+      format.pdf do
+        pdf = HorarioPdf.new(@horario, view_context)
+        send_data pdf.render, filename:
+        "Horario_#{@horario.id}.pdf", type: "application/pdf"
+      end
+    end
   end
 
 

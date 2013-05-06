@@ -1,0 +1,26 @@
+rails g scaffold materia nombre:string --skip-stylesheets
+
+rails g scaffold instructor nombres:string cedula:string email:string direccion:string telefono:string fch_nacimiento:date --skip-stylesheets
+
+rails g scaffold curso ficha:string nombre:string --skip-stylesheets
+
+rails g scaffold estudiante nombre:string cedula:string email:string direccion:string fch_nacimiento:date curso:references --skip-stylesheets
+
+rails g scaffold horario dia:string hora:time aula:string materia:references instructor:references curso:references --skip-stylesheets
+
+
+
+
+
+campos adicionales:
+
+rails generate migration add_apellidos_to_instructores apellidos:string
+
+recuerde: rake db:migrate
+
+
+
+rails generate migration add_materia_id_to_instructores materia_id:integer
+
+
+recuerde: rake db:migrate

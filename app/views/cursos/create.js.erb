@@ -1,2 +1,3 @@
 $('table tbody').append("<%= escape_javascript(render @curso) %>")
+$('p#totcurs').attr('value','<%= @cursos.count %>');
 $.lazybox.close()

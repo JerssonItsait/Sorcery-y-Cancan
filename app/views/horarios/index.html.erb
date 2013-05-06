@@ -30,21 +30,16 @@
       <th><%= sortable "materia" %></th>
       <th><%= sortable "instructor" %></th>
       <th><%= sortable "curso" %></th> 
-      <th>Acciones<th>     
-      <th></th>
+         
     </tr>
   </thead>
   <tbody>
      <%= render @horarios %>
   </tbody>
   <tfoot>
-    <tr>
-      <td><%= link_to 'Nuevos Horarios', new_horario_path, :class => 'btn btn-success', :remote => true %></td>
-    </tr>
   </tfoot>
 </table>
-<br />
-<br />
+  <%= link_to 'Nuevos Horarios', new_horario_path, :class => 'btn btn-success', :remote => true %>
 <div align="center">
 <%= will_paginate @horarios, :previous_label => '&laquo; Anterior', :next_label => 'Siguiente
 &raquo;' %>

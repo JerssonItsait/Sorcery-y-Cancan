@@ -1,8 +1,38 @@
 Proyecto::Application.routes.draw do
   
+  get "sessions/new"
+
+  get "sessions/create"
+
+  get "sessions/destroy"
+
+  get "users/index"
+
+  get "users/show"
+
+  get "users/new"
+
+  get "users/create"
+
+  get "users/edit"
+
+  get "users/update"
+
+  get "users/destroy"
+
   get "login/index"
 
   get "home/index"
+
+
+ get "logout" => "sessions#destroy", :as => "logout"
+ get "login" => "sessions#new", :as => "login"
+ get "signup" => "users#new", :as => "signup"
+ resources :users
+ resources :sessions
+
+ 
+ root :to => "home#index"
 
   resources :horarios
 
@@ -19,7 +49,7 @@ Proyecto::Application.routes.draw do
   resources :materias 
 
   #resources :home
-    
+  
   
 
 
@@ -72,7 +102,7 @@ Proyecto::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-   root :to => 'home#index'
+   #root :to => 'home#index'
 
   # See how all your routes lay out with "rake routes"
 

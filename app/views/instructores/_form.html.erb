@@ -1,7 +1,10 @@
-<%= simple_form_for(@instructor, :html => { :class => 'form-horizontal' }, :remote => true) do |f| %>
+<%= simple_form_for(@instructor, :html => { :class => 'form-horizontal', :multipart => true }) do |f| %>
 
   <%= f.error_notification %>
   
+    <%= image_tag @instructor.avatar.url(:small) %>
+  <%= f.label :Foto %>
+  <%= f.file_field :avatar %>
   <%= f.input :nombres, :label => "Nombre",  :required => true %>
   <%= f.input :apellidos, :label => "Apellidos",  :required => true %>
   <%= f.input :cedula, :label => "Cedula",  :required => true %>

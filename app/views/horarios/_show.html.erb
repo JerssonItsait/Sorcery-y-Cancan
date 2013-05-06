@@ -8,7 +8,7 @@
   <p>dia: <%= @horario.dia %></p>
   <p>hora: <%= @horario.hora %></p>
   <p>aula: <%= @horario.aula %></p>
-  <p>materia: <%= @horario.materia_id %></p>
-  <p>instructor: <%= @horario.instructor_id %></p>
-  <p>curso: <%= @horario.curso_id %></p>
+  <p>materia: <%= @horario.materia.nombre %></p>
+  <p>instructor: <%= @horario.instructor.nombres %></p>
+  <p>curso: <%= @horario.curso.nombre %></p>
 </div>

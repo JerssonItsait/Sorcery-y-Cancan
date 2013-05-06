@@ -1,5 +1,7 @@
 class MateriasController < ApplicationController
 
+  before_filter :require_login
+
 before_filter :find_materia, :except => [ :index, :create, :new ]
 
 helper_method :sort_column, :sort_direction

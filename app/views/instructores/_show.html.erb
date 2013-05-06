@@ -5,6 +5,7 @@
 
 <div class='instructor'>
   <p><%= @instructor.id %></p>
+  <p><%= image_tag @instructor.avatar.url(:small) %></p>
   <p><%= @instructor.nombres %></p>
   <p><%= @instructor.apellidos %></p>
   <p><%= @instructor.cedula %></p>
