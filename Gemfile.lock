@@ -33,6 +33,7 @@ GEM
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
     builder (3.0.4)
+    cancan (1.6.9)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.1)
@@ -125,6 +126,7 @@ GEM
     rdoc (3.12.2)
       json (~> 1.4)
     ref (1.0.4)
+    rolify (3.2.0)
     ruby-rc4 (0.1.5)
     sass (3.2.7)
     sass-rails (3.2.6)
@@ -167,6 +169,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt-ruby
+  cancan
   coffee-rails (~> 3.2.1)
   jquery-rails
   lazybox
@@ -175,6 +178,7 @@ DEPENDENCIES
   pg
   prawn
   rails (= 3.2.12)
+  rolify
   sass-rails (~> 3.2.3)
   simple_form
   sorcery
